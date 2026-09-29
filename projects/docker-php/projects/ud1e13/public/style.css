@@ -1,10 +1,10 @@
 .roboto-<uniquifier> {
-  font-family: "Roboto", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: <weight>;
-  font-style: normal;
-  font-variation-settings:
-    "wdth" 100;
+    font-family: "Roboto", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: <weight>;
+    font-style: normal;
+    font-variation-settings:
+        "wdth" 100;
 }
 
 body {
@@ -12,6 +12,7 @@ body {
     width: 100%;
     background-color: rgb(154, 37, 213);
 }
+
 #calculator-body {
     border-radius: 20px;
     box-shadow: 2px 2px 2px;
@@ -51,7 +52,7 @@ div form {
     display: flex;
     flex-direction: column;
     align-content: center;
-    padding: 1em;   
+    padding: 1em;
     margin: 1em;
     margin-left: auto;
     margin-right: auto;
@@ -64,7 +65,7 @@ div form {
     min-height: 20%;
 }
 
-div form div label{
+div form div label {
     padding: 1em;
     height: 2em;
 }
@@ -75,11 +76,10 @@ div form div input {
     background-color: rgb(173, 141, 203);
     border-radius: 10px;
     padding: 0.5em;
-
 }
 
 
-div form button{
+div form button {
     border-radius: 2em;
     margin-top: 2em;
     background-color: rgb(173, 141, 203);

@@ -60,19 +60,19 @@
 
                 <label>Número 1:</label>
                 <input type="number" name="numero1">
-                
-            <label>Número 2:</label>
-            <input type="number" name="numero2">
 
-            <label>Operación:</label>
-            <select name="operando">
-                <option value="+">+</option>
-                <option value="-">-</option>
-                <option value="*">*</option>
-                <option value="/">/</option>
-            </select>
-        </div>
-            
+                <label>Número 2:</label>
+                <input type="number" name="numero2">
+
+                <label>Operación:</label>
+                <select name="operando">
+                    <option value="+">+</option>
+                    <option value="-">-</option>
+                    <option value="*">*</option>
+                    <option value="/">/</option>
+                </select>
+            </div>
+
             <button type="submit">Calcular</button>
 
         </form>
