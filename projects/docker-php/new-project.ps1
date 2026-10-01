@@ -55,7 +55,7 @@ InstalacionEntornoTrabajo-v2.md 2026-09-15
 Write-Utf8NoBom "$ruta\composer.json" $composerJson
 #>
 # --- Git y Composer dentro del contenedor ---
-docker compose exec -w "/var/www/projects/$Nombre" web git init -q
+#docker compose exec -w "/var/www/projects/$Nombre" web git init -q
 # docker compose exec -w "/var/www/projects/$Nombre" web composer install -q
 Write-Host "Proyecto '$Nombre' creado correctamente." -ForegroundColor Green
 Write-Host "HTTP: http://$Nombre.localhost/"
