@@ -1,0 +1,26 @@
+body {
+    width: 100vw;
+    margin: 0px;
+    padding: 0px;
+    background-color: green;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+img {
+    width: 200px;
+    height: 300px;
+}
+
+.cartaDiv {
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+    margin: 0.2em;
+    text-align: center;
+    background-color: greenyellow;
+}
+
+.cartaDiv p {
+    padding-top: 1em;
+}
