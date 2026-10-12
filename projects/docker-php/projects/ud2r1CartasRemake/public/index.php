@@ -16,6 +16,7 @@ session_start();
 
 <body>
 
+<div class="cardField">
 
     <?php
 
@@ -64,16 +65,20 @@ session_start();
         $_SESSION["banca"] = $banca;
     }
     ?>
+</div>
 
-    <form method="POST">
-        <button type="submit" name="repartir">Repartir carta</button>
-    </form>
-    <form method="POST">
-        <button type="submit" name="reiniciar">Reiniciar</button>
-    </form>
-    <form method="POST">
-        <button type="submit" name="plantarse">Plantarse</button>
-    </form>
+    <div class="buttons">
+
+        <form method="POST">
+            <button type="submit" name="repartir">Repartir carta</button>
+        </form>
+        <form method="POST">
+            <button type="submit" name="reiniciar">Reiniciar</button>
+        </form>
+        <form method="POST">
+            <button type="submit" name="plantarse">Plantarse</button>
+        </form>
+    </div>
 
 </body>
 
