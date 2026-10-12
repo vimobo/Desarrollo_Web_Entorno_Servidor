@@ -1,11 +1,12 @@
 <?php
-
+    
 class Carta {
     private string $numero;
+    
 
     const array PALOS = ["espadas", "oros", "copas", "bastos"];
-    const array VALORES = [1 => "as", 2 => "dos", 3 => "tres", 4 => "cuatro", 5 => "cinco", 6 => "seis", 7 => "siete",
-                    10 => "sota", 11 => "caballo", 12 => "rey"];
+    const array VALORES =   [1 => "as", 2 => "dos", 3 => "tres", 4 => "cuatro", 5 => "cinco", 6 => "seis", 7 => "siete",
+                            10 => "sota", 11 => "caballo", 12 => "rey"];
 
     function __construct(
     private string $palo,
@@ -40,6 +41,25 @@ class Carta {
 
     function setNumero(string $numero):void {
         $this->numero = $numero;
+    }
+
+    function imprimirCartaImagen(): string {
+        return "<div class='cartaDiv'><img src='./imagenes/". $this->getPalo() . "_" . $this->getNumero() . ".jpg' alt='carta'><p>"
+        . $this->getNumero() . " de " . $this->getPalo() . "</p></div>";
+    }
+
+    function imprimirCarta():string {
+        return $this->getNumero() . " de " . $this->getPalo() . "</p></div>";
+    }
+
+    function calcularPuntos(): float {
+        $n = (float) $this->numero;
+        $valor = 0;
+        if( $n > 0 && $n < 10)
+            $valor = $n;
+        else
+            $valor = 0.5;
+        return $valor;
     }
 }
 ?>

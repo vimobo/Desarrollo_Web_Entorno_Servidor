@@ -1,5 +1,5 @@
 <?php
-
+/*
     $palos = ["oros", "copas", "espadas", "bastos"];
     $barajaActual = [];
     include_once("./Carta.php");

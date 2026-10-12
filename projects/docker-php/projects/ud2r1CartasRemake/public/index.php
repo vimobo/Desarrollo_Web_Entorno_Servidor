@@ -1,3 +1,9 @@
+<?php
+include_once("./Carta.php");
+include_once("./Baraja.php");
+include_once("./Jugador.php");
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,21 +18,63 @@
 
 
     <?php
-    include("./functions.php");
 
-    crearBarajaCompleta();
-    echo(imprimirBaraja());
+    if (!isset($_SESSION["baraja"])) {
+        $baraja = new Baraja();
+        $jugador = new Jugador(false);
+        $banca = new Jugador(true);
+        $baraja->crearBarajaCompleta();
+        $baraja->barajarBaraja();
 
-    //crearBarajaReducida();
-    barajarBaraja($barajaActual);
-    //echo(imprimirBaraja());
-    //echo(imprimirBarajaConImagenes());
-    //echo("____________________________<br>");
-    //echo(imprimirCarta($barajaActual));
-    //sacarCarta($barajaActual);
-    //echo(imprimirBaraja());
-    //print_r($barajaActual);
+
+        $_SESSION["baraja"] = $baraja;
+        $_SESSION["jugador"] = $jugador;
+        $_SESSION["banca"] = $banca;
+    }
+
+    $baraja = $_SESSION["baraja"];
+    $jugador = $_SESSION["jugador"];
+    $banca = $_SESSION["banca"];
+
+    if (isset($_POST["repartir"])) {
+        $jugador->sacarPrimeraCarta($baraja);
+
+        $_SESSION["baraja"] = $baraja;
+        $_SESSION["jugador"] = $jugador;
+    }
+
+    if (isset($_POST["plantarse"])) {
+        $jugador->plantarse($banca, $baraja);
+
+        $_SESSION["baraja"] = $baraja;
+        $_SESSION["jugador"] = $jugador;
+        $_SESSION["banca"] = $banca;
+    }
+
+    if (isset($_POST["reiniciar"])) {
+        $baraja = new Baraja();
+        $baraja->crearBarajaCompleta();
+        $baraja->barajarBaraja();
+
+        $jugador = new Jugador(false);
+        $banca = new Jugador(true);
+
+        $_SESSION["baraja"] = $baraja;
+        $_SESSION["jugador"] = $jugador;
+        $_SESSION["banca"] = $banca;
+    }
     ?>
 
+    <form method="POST">
+        <button type="submit" name="repartir">Repartir carta</button>
+    </form>
+    <form method="POST">
+        <button type="submit" name="reiniciar">Reiniciar</button>
+    </form>
+    <form method="POST">
+        <button type="submit" name="plantarse">Plantarse</button>
+    </form>
+
 </body>
+
 </html>
