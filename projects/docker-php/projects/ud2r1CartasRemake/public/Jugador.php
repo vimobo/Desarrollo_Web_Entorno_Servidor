@@ -17,19 +17,19 @@ class Jugador
 
     function sacarPrimeraCarta(&$baraja)
     {
-        echo("<div class='cartaInfo'>");
+        
         if($this->puntos <= 7.5) {
             $carta = $baraja->quitarPrimerCarta();
             $this->cartasSacadas->aniadirCartas($carta);
             $this->puntos += $carta->calcularPuntos();
-                echo (($this->esBanca ? "<p>La banca" : "El jugador ") . " saca una carta<br></p>");
+                echo (($this->esBanca ? "<p>La banca" : "<p>El jugador ") . " saca una carta<br></p>");
             if(!$this->esBanca)
                 echo($this->cartasSacadas->imprimirBarajaConImagenes());
             else 
                 echo($carta->imprimirCartaImagen());
 
-                echo ($this->esBanca ? "<p>La banca " .  " tiene " . $this->puntos . " puntos<br>"  : "El jugador " . " tiene " . $this->puntos . " puntos<br> </p>");
-                echo("</div>");
+                echo ($this->esBanca ? "<p>La banca " . " tiene " . $this->puntos . " puntos<br>"  : "<p>El jugador " . " tiene " . $this->puntos . " puntos<br> </p>");
+
 
             if ($this->puntos > 7.5)
                 echo ("<p>Te has pasado.</p>");
