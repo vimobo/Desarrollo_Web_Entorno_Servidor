@@ -12,6 +12,11 @@
 
     use Vtiful\Kernel\Format;
 
+    enum respuestas: string {
+       case respuesta1  = "El camión está lleno. Peso total";
+       case respuesta2  = ["si", "no"];
+    }
+
     //Variables globales
     $pedidos;
     $pesoTotal;
@@ -141,7 +146,7 @@
                 $pedido["carga"] . "<br>";
         }
         if ($pesoTotal >= 15)
-            $stringADevolver .= "<br>El camión está lleno. Peso total: " . $pesoTotal . " kg";
+            $stringADevolver .= "<br>". respuestas::respuesta1 . $pesoTotal . " kg";
         else
             $stringADevolver .= "<br> El camión va perfecto: Peso total: " . $pesoTotal . " kg";
 
