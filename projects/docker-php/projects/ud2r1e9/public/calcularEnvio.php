@@ -1,5 +1,6 @@
 <?php
-    interface CalcularEnvio {
-        public function calcularCosto($peso, $distancia): float;
-    }
+interface CalcularEnvio {
+    function calcularEnvio($peso, $distancia): float;
+}
+
 ?>
