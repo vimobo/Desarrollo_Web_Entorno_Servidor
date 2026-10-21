@@ -14,3 +14,4 @@ spl_autoload_register(function (string $clase): void {
         require_once $archivo;
     }
 });
+

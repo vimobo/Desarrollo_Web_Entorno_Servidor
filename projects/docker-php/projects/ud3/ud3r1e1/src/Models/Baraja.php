@@ -4,8 +4,8 @@ declare(strict_types=1);
 namespace Models;
 
 
-use Valor;
-use Palo;
+use Enums\Valor;
+use Enums\Palo;
 
 class Baraja
 {
@@ -32,9 +32,17 @@ class Baraja
         }
     }
 
+    public function getCartas() {
+        return $this->cartas;
+    }
+
     public function sacarCarta(): ? Carta
     {
         return array_pop($this->cartas);
+    }
+
+    function totalCartas() {
+        return count($this->cartas);
     }
 }
 ?>

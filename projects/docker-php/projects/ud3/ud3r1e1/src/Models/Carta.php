@@ -2,8 +2,8 @@
 
 namespace Models;
 
-use Valor;
-use Palo;
+use Enums\Valor;
+use Enums\Palo;
 
 class Carta
 {
@@ -26,4 +26,6 @@ class Carta
     {
         return $this->palo;
     }
+
+    
 }

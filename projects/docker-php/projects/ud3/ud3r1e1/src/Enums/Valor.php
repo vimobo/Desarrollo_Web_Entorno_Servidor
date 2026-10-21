@@ -1,4 +1,5 @@
 <?php
+namespace Enums;
 
 enum Valor: int
 {
@@ -13,10 +14,5 @@ enum Valor: int
     case CABALLO = 11;
     case REY = 12;
 
-
-
 }
-
-Carta::CABALLO->$name = CABALLO;
-Carta::CABALLO->$value = 11;
 ?>
