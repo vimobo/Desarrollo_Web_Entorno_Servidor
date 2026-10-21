@@ -4,8 +4,6 @@ declare(strict_types=1);
 require __DIR__ . '/../autoloader.php';
 
 
-
-
 use Models\Baraja;
 use Models\Carta;
 use Enums\Palo;

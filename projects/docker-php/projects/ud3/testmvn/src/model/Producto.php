@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace controller;
+namespace model;
 
 class Producto
 {
@@ -64,5 +64,10 @@ class Producto
     public function calculatePriceProducto() : float {
         return $this->getPrice() * $this->getQuantity();
     }
+
+
+	public function imprimirProducto(){
+		return $this->name ."<br>". $this->description;
+	}
 }
 ?>

@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace controller;
+namespace model;
 
 class Tienda
 {
@@ -38,9 +38,18 @@ class Tienda
         return $total;
     }
 
+    public function imprimirProductos(): string
+    {
+        $string = "";
+        foreach ($this->productosList as $producto) {
+            $string .= "<br>" . $producto->imprimirProducto() . "<br>Precio:" .
+                $producto->calculatePriceProducto();
+        }
+        return $string;
+    }
+
 
 }
 
-$p1 = new Producto(0,"Pelota", "puedes jugar con ella", 20, 3);
-echo($p1);
+
 ?>
