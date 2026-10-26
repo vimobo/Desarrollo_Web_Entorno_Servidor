@@ -70,7 +70,7 @@ class BibliotecaController
         $libros = $this->biblioteca->getListaLibros();
         $id = (int) $_GET["id"];
 
-        $this->pages->render("libros", [
+        $this->pages->render("libro", [
             "content" => $libros[$id]->imprimirLibro()
         ]);
     }
@@ -81,14 +81,14 @@ class BibliotecaController
         $id = (int) $_GET['id'];
         $contenido = $this->biblioteca->imprimirPorIdAutor($id);
 
-        $this->pages->render("libros", [
+        $this->pages->render("autor", [
             "content" => $contenido
         ]);
     }
 
     public function disponible() {
         $libros = $this->biblioteca->imprimirLibrosDisponibles();
-        $this->pages->render("libros", [
+        $this->pages->render("disponible", [
             "content" => $libros
         ]);
     } 
