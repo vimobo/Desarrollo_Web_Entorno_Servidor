@@ -64,11 +64,11 @@ class Libro {
 
 	public function imprimirLibro():string {
 		return 	
-			"id: " . $this->id . "<br>".
+			"<div>id: " . $this->id . "<br>".
 			"titulo: " . $this->titulo . "<br>".
 			"anio: " . $this->anio . "<br>".
 			"autorId: " . $this->autorId . "<br>".
-			"disponible: " . $this->disponible . "<br>";
+			"disponible: " . $this->disponible . "<br></div>";
 	}
 
 }

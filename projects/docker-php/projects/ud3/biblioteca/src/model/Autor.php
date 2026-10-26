@@ -47,8 +47,8 @@ class Autor
 
     public function imprimirAutor(): string {
         return
-            "id: " . $this->id . "<br>" .
+            "<div>id: " . $this->id . "<br>" .
             "nombre: " . $this->nombre . "<br>" .
-            "nacionalidad: " . $this->nacionalidad . "<br>";
+            "nacionalidad: " . $this->nacionalidad . "<br></div>";
     }
 }
