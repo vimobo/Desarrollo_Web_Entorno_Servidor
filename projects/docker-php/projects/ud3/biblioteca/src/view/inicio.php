@@ -6,11 +6,17 @@
     <a href="?action=libros">
         Ver libros
     </a>
+    <a href="?action=libro&id">
+        Ver libro por id
+    </a>
 
-    <a href="?action=disponibles">
+    <a href="?action=disponibls">
         Ver libros disponibles
     </a>
     <a href="?action=autor&id=">
         Ver autor por id
+    </a>
+    <a href="?action=disponible">
+        Ver disponible
     </a>
 </nav>

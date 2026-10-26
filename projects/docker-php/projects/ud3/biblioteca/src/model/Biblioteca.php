@@ -56,9 +56,9 @@ class Biblioteca
         return $string;
     }
 
-    static public function imprimirLibrosDisponibles(array $libros):string {
+    public function imprimirLibrosDisponibles():string {
         $string = "";
-        foreach ($libros as $libro) {
+        foreach ($this->listaLibros as $libro) {
             if ($libro->getDisponible() === true) 
                 $string .= $libro->imprimirLibro();
         }

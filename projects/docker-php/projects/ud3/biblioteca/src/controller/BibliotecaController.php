@@ -65,6 +65,17 @@ class BibliotecaController
         ]);
     }
 
+    public function libro(): void
+    {
+        $libros = $this->biblioteca->getListaLibros();
+        $id = (int) $_GET["id"];
+
+        $this->pages->render("libros", [
+            "content" => $libros[$id]->imprimirLibro()
+        ]);
+    }
+
+
     public function autor(): void
     {
         $id = (int) $_GET['id'];
@@ -74,4 +85,11 @@ class BibliotecaController
             "content" => $contenido
         ]);
     }
+
+    public function disponible() {
+        $libros = $this->biblioteca->imprimirLibrosDisponibles();
+        $this->pages->render("libros", [
+            "content" => $libros
+        ]);
+    } 
 }
