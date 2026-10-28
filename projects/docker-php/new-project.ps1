@@ -36,7 +36,9 @@ try {
     # Crear estructura
     New-Item -ItemType Directory -Path "$ruta\public" -Force -ErrorAction Stop | Out-Null
     New-Item -ItemType Directory -Path "$ruta\src" -Force -ErrorAction Stop | Out-Null
-    New-Item -ItemType Directory -Path "$ruta\tests" -Force -ErrorAction Stop | Out-Null
+    New-Item -ItemType Directory -Path "$ruta\src\Models" -Force -ErrorAction Stop | Out-Null
+    New-Item -ItemType Directory -Path "$ruta\src\View" -Force -ErrorAction Stop | Out-Null
+    New-Item -ItemType Directory -Path "$ruta\src\Controller" -Force -ErrorAction Stop | Out-Null
 
     # Composer
     $composerJson = @"
