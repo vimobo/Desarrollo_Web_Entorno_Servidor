@@ -1,0 +1,35 @@
+<?php
+
+declare(strict_types = 1);
+
+namespace Models;
+
+// ----------------------------------------------------------
+// CLASSES
+// ----------------------------------------------------------
+
+class Contact
+{
+    // ----------------------------------------------------------
+    // CLASSES
+    // ----------------------------------------------------------
+
+    public function __construct(
+        public private(set) string $username = '',
+        public private(set) string $password = '',
+    )
+    {}
+
+    // ----------------------------------------------------------
+    // METHODS
+    // ----------------------------------------------------------
+
+    public static function fromArray(array $data) : self
+    {
+        return new self(
+            username: $data['username'],
+            password: $data['password'],
+
+        );
+    }
+}
