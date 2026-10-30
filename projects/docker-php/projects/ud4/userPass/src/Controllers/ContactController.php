@@ -40,31 +40,30 @@ class ContactController
 
     public function process(): void
     {
-        if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-            
-        }
-        else {
-            $this->showForm();
-            return;
-            var_dump($_POST);
-            $resultado = ContactRequest::sanearYValidar($_POST);
+    // Comprobar que sea POST
+    if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+        $this->showForm();
+        return;
+    }
 
-            $request = $resultado['request'];
-            $errores = $resultado['errores'];
+    // Validar formulario
+    $resultado = ContactRequest::sanearYValidar($_POST['data']);
 
-            if (empty($errores)) {
-                echo "Formulario válido";
+    $request = $resultado['request'];
+    $errores = $resultado['errores'];
 
-                $this->pages->render('form/form', $errores);
+    // Comprobar errores
+    if (!empty($errores)) {
+        $this->pages->render('form/form', [
+            'errores' => $errores,
+            'request' => $request
+        ]);
+        return;
+    }
 
-            } else {
-                foreach ($errores as $campo => $mensaje) {
-                    echo $mensaje . "<br>";
-                }
-            }
-        }
-
-        $contact = ContactRequest::sanearYValidar($_POST['data'] ?? []);
-        $this->pages->render('form/response', ['contact' => $contact]);
+    // Mostrar respuesta
+    $this->pages->render('form/response', [
+        'contact' => $request->username
+    ]);
     }
 }

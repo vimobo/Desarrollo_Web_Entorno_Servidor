@@ -16,7 +16,7 @@ class ContactRequest
     }
 
 
-    static function sanearString($string)
+    static function sanearString(string $string): string
     {
         return filter_var($string, FILTER_SANITIZE_SPECIAL_CHARS);
     }
@@ -24,8 +24,8 @@ class ContactRequest
     public static function sanear(array $data): self
     {
         return new self(
-            username: self::sanearString(e($data['username'])),
-            password: self::sanearString(e($data['password'])),
+            username: self::sanearString(e($data['username']) ?? ''),
+            password: e($data['password']) ?? '',
         );
     }
 
@@ -61,6 +61,7 @@ class ContactRequest
         if (strlen($this->password) < 8) {
             $errores['password'] = 'La contraseña debe tener al menos 8 caracteres.';
         }
+        
 
         return $errores;
     }
