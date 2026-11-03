@@ -11,6 +11,7 @@ class TrianguloController
 
     private Triangulo $triangulo;
     private Pages $pages;
+    private array $errores;
 
     public function __construct()
     {
@@ -26,11 +27,15 @@ class TrianguloController
     public function process(): void
     {
 
-    
         if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
             $this->pages->render('form/form');
             return;
         }
+
+        $height = e($_POST['data']['height']);
+        $width = e($_POST['data']['width']);
+        
+        
 
         $this->triangulo->setHeigth($_POST['data']['height']);
         $this->triangulo->setWidth($_POST['data']['width']);

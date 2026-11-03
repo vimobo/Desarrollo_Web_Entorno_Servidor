@@ -11,4 +11,7 @@
     </p>
 
     <input type="submit" />
+
+    <?php if ?>
+    <?php endif ?>
 </form>
