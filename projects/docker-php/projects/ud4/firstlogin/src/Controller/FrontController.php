@@ -14,7 +14,6 @@ class FrontController
 {
     public static function main(): void
     {
-        $pages = new Pages();
 
         $controller_name = ucfirst($_GET['controller'] ?? DEFAULT_CONTROLLER) . 'Controller';
         $action_name = strtolower($_GET['action'] ?? DEFAULT_ACTION);

@@ -3,7 +3,7 @@
 namespace Lib;
 
 class Pages {
-    private const string VIEWS_DIR = __DIR__ . '/../view/';
+    private const string VIEWS_DIR = __DIR__ . '/../View/';
 
     public function render(string $pageName, ?array $params= null): void {
         if ($params != null) {

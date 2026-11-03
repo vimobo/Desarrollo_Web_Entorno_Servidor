@@ -14,7 +14,7 @@
 	public function __construct() {
 
 		$this->username = "vicenvicen";
-		$this->password = "1234";
+		$this->password = password_hash("1234", PASSWORD_DEFAULT);
 	}
 
 	public function getUsername() : string {
