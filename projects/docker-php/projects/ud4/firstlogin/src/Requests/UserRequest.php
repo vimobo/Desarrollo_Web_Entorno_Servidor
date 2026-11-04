@@ -23,11 +23,14 @@ class UserRequest
             }
 
             if (strlen($username) < 8) {
-                $respuesta['errores']['username'] .= "Necesita tener al menos 8 caracteres <br>";
+                $respuesta['errores']['username'] .= "Necesita tener al menos 8 caracteres";
             }
 
             if (strlen($username) > 16) {
                 $respuesta['errores']['username'] .= "Necesita tener menos de 16 caracteres";
+            }
+            if (strlen($username) > 0) {
+                $respuesta['errores']['username'] .= "Las credenciales no coinciden";
             }
 
             $respuesta['username'] = htmlspecialchars(

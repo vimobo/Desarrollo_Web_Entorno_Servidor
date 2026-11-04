@@ -1,0 +1,16 @@
+{
+    "folder-color.pathColors": [
+        {
+            "folderPath": "Desarrollo_Web_Entorno_Servidor\\projects\\docker-php\\projects\\ud4\\validation2",
+            "color": "foldercolorizer.color_ffd700"
+        },
+        {
+            "folderPath": "Desarrollo_Web_Entorno_Servidor\\projects\\docker-php\\projects\\ud4\\validation2\\",
+            "color": "foldercolorizer.color_005fd7"
+        },
+        {
+            "folderPath": "Desarrollo_Web_Entorno_Servidor\\projects\\docker-php\\projects\\ud4\\firstlogin\\",
+            "color": "foldercolorizer.color_00d7ff"
+        }
+    ]
+}
