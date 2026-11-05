@@ -16,10 +16,9 @@ class AuthController
     }
     public static function login(array $respuesta, Pages $pages, User $user): void
     {
-        if (isset($respuesta['errores'])) {
-            $pages->render('form/form', $respuesta);
-            return ;
-        }
+
+
+
 
         // Comprobar usuario y contraseña
         if (
@@ -30,15 +29,25 @@ class AuthController
             )
         ) {
             $pages->render('form/formResponse', ['username' => $respuesta['username']]);
-            return ;
+            return;
+            
+            
+            } else if (isset($respuesta['errores'])) {
+                
+                $pages->render('form/form', $respuesta);
+            return;
+
+        } else {
+
+            // Credenciales incorrectas
+            $pages->render('form/form', [
+                'errores' => [
+                    'login' => 'Usuario o contraseña incorrectos'
+                ]
+            ]);
         }
 
-        // Credenciales incorrectas
-        $pages->render('form/form', [
-            'errores' => [
-                'login' => 'Usuario o contraseña incorrectos'
-            ]
-        ]);
+
     }
 
 }
