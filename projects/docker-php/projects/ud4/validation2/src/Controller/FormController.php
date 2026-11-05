@@ -20,8 +20,7 @@ class FormController
     }
 
     public function showform(): void
-    {
-
+    {  
         $this->pages->render('form/form');
 
     }
