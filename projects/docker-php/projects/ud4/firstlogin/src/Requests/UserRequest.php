@@ -18,9 +18,7 @@ class UserRequest
             $username = e($valores['username']);
             $respuesta['errores']['username'] = "";
 
-            if (strlen($username) === "") {
-                $respuesta['errores']['username'] .= "El user necesita existir";
-            }
+
 
             if (strlen($username) < 8) {
                 $respuesta['errores']['username'] .= "Necesita tener al menos 8 caracteres <br>";
