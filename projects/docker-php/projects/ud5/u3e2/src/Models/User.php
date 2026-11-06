@@ -17,7 +17,7 @@ class User
     public function __construct(
         public string $username,
         public string $password,
-        public string $img
+        public array $img
     )
     {}
 
@@ -29,7 +29,12 @@ class User
     {
         return new self(
             username: htmlspecialchars(trim($data['username'] ?? ''), ENT_QUOTES, 'UTF-8'),
-            password: htmlspecialchars(trim($data['password'] ?? ''), ENT_QUOTES, 'UTF-8')
+            password: htmlspecialchars(trim($data['password'] ?? ''), ENT_QUOTES, 'UTF-8'),
+            img: $_FILES['img'],
         );
+    }
+
+    public function setImg($img) {
+        $this->img = $img;
     }
 }

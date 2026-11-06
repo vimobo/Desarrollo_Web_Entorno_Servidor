@@ -15,7 +15,7 @@ class UserController
     // ----------------------------------------------------------
 
     private string $username = 'user';
-    private string $password = '1234';
+    private string $password = 'aaaAAA1234567';
 
     // ----------------------------------------------------------
     // CONSTRUCTORS
@@ -45,8 +45,5 @@ class UserController
         return password_verify($password, $this->password);
     }
 
-        public function is_correct_img(string $img) : bool
-    {
-        return img_verify($password, $this->password);
-    }
+
 }

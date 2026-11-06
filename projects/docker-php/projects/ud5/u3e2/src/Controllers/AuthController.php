@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace Controllers;
 
@@ -41,7 +41,7 @@ class AuthController
      * @param array $data
      * @return void
      */
-    public function show_form(array $data = []) : void
+    public function show_form(array $data = []): void
     {
         $this->pages->render('form/form', $data);
     }
@@ -51,7 +51,7 @@ class AuthController
      *
      * @return void
      */
-    public function show_welcome_page() : void
+    public function show_welcome_page(): void
     {
         $this->pages->render('form/response');
     }
@@ -63,19 +63,22 @@ class AuthController
      */
     public function attempt_to_log_in()
     {
-        if ($_SERVER['REQUEST_METHOD'] !== 'POST')
-        {
+        if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
             $this->goToAction('show_form');
             return;
         }
 
         $user = User::fromArray($_POST['data'] ?? []);
+        $user->setImg($_FILES['img'] ?? '');
         $user_request = new UserRequest($user);
 
-        if (!$user_request->isValid())
-        {
+        if (!$user_request->isValid()) {
             $username_error_message = $user_request->errors['username'] ?? null;
             $password_error_message = $user_request->errors['password'] ?? null;
+            $img_error_message = $user_request->errors['img'] ?? null;
+
+
+            var_dump($img_error_message);
 
             $this->show_form([
                 'username_error_message' => $username_error_message,
@@ -90,18 +93,16 @@ class AuthController
         $is_correct_password = $this->user_controller->is_correct_password($user->password);
         $is_correct_img = $this->user_controller->is_correct_img($user->img);
 
-        if ($is_correct_name && $is_correct_password)
-        {
+        if ($is_correct_name && $is_correct_password) {
             $this->goToAction('show_welcome_page');
-        }
-        else
-        {
+        } else {
             $username_error_message = !$is_correct_name ? 'The username is incorrect' : null;
             $password_error_message = !$is_correct_password ? 'The password is incorrect' : null;
 
             $this->show_form([
                 'username_error_message' => $username_error_message,
                 'password_error_message' => $password_error_message,
+                'img_error_message' => $img_error_message,
                 'username' => $user->username
             ]);
         }
@@ -113,7 +114,7 @@ class AuthController
      * @param string $action
      * @return void
      */
-    private function goToAction(string $action) : void
+    private function goToAction(string $action): void
     {
         header("Location: index.php?action=$action");
         exit;
