@@ -35,6 +35,10 @@
         {
             "folderPath": "Desarrollo_Web_Entorno_Servidor\\projects\\docker-php\\projects\\ud5\\agencia",
             "color": "foldercolorizer.color_ff5f87"
+        },
+        {
+            "folderPath": "Desarrollo_Web_Entorno_Servidor\\projects\\docker-php\\projects\\ud5\\videojuegos_equipolimon\\",
+            "color": "foldercolorizer.color_d78700"
         }
     ]
 }
