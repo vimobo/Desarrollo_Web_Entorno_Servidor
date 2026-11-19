@@ -6,7 +6,7 @@ services:
     ports:
       - "80:80"
       - "443:443"
-      - "9004:9004"
+      - "9003:9003"
     volumes:
       - ./projects:/var/www/projects
       - ./docker/certs/wildcard-localhost.pem:/etc/ssl/certs/wildcard-localhost.pem:ro

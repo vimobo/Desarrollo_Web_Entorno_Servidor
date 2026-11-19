@@ -2,19 +2,19 @@ FROM php:8.5-apache
 # --- Paquetes del sistema: git, zip/unzip, librerías para extensiones ---
 # --- Paquetes del sistema: git, zip/unzip, librerías para extensiones ---
 RUN apt-get update && apt-get install -y \
-git \
-zip \
-unzip \
-libzip-dev \
-libpng-dev \
-libjpeg62-turbo-dev \
-libfreetype6-dev \
-libonig-dev \
-libxml2-dev \
-zlib1g-dev \
-default-mysql-client \
-curl \
-&& rm -rf /var/lib/apt/lists/*
+    git \
+    zip \
+    unzip \
+    libzip-dev \
+    libpng-dev \
+    libjpeg62-turbo-dev \
+    libfreetype6-dev \
+    libonig-dev \
+    libxml2-dev \
+    zlib1g-dev \
+    default-mysql-client \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
 # --- Extensiones PHP: GD de forma independiente ---
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
 && docker-php-ext-install gd
@@ -40,7 +40,6 @@ RUN a2ensite default-ssl
 COPY apache/default-index.html /var/www/default/index.html
 # --- Configuración de PHP para desarrollo ---
 COPY apache/php.ini-development-overrides.ini /usr/local/etc/php/conf.d/zz-dev-overrides.ini
-
 # --- Xdebug: configuración común para cualquier editor ---
 COPY apache/xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
 # --- PHPUnit disponible globalmente dentro del contenedor ---
