@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 
+use Controllers\FileController;
 use Core\Router;
 use Controllers\AuthController;
 
@@ -11,4 +12,5 @@ Router::add("get", "/login", [AuthController::class, 'login']);
 Router::add("post", "/processLogin", [AuthController::class, 'processLogin']);
 Router::add("get", "/register", [AuthController::class, 'register']);
 Router::add("post", "/processRegister", [AuthController::class, 'processRegister']);
-Router::add("post", "/addFiles", [AuthController::class, 'renderAddFiles']);
+Router::add("post", "/addFiles", [FileController::class, 'addFiles']);
+Router::add("post", "/showFiles", [FileController::class, 'addFiles']);

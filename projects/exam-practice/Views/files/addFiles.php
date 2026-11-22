@@ -1,7 +1,7 @@
 <form method="POST" action="addFiles" enctype="multipart/form-data">
 
-        <label for="gameName">Name</label>
-        <input type="text" name="data[gameName]" id="gameName" value="<?=$gameName ?? "" ?>">
+        <label for="fileName">Name</label>
+        <input type="text" name="data[fileName]" id="fileName" value="<?=$fileName ?? "" ?>">
 
         <label for="gameDescription">Description</label>
         <input type="text" name="data[description]" id="gameDescription" value="<?=$description ?? "" ?>">
@@ -12,7 +12,7 @@
         <label  for="gameCategory">Game Category</label>
         <input type="text" name="data[category]" id="submitButton" value="<?=$category ?? "" ?>">
 
-        <input type="file" name="data" id="file">
+        <input type="file" name="file" id="file">
         <input type="submit" value="Upload Game" id="submitButton">
     </form>
     <p>

@@ -48,7 +48,7 @@ class AuthController
             $user = UserRepository::getUser($request->response['email']);
 
             
-            if (LoginRequest::authUser($user))
+            if ($request->authUser())
                 $this->pages->render('files/addFiles', $request->response);
             
             else {
@@ -57,6 +57,8 @@ class AuthController
 
         }
     }
+
+    
 
     public function processRegister(): void
     {
@@ -68,6 +70,7 @@ class AuthController
         else {
             $user = new User($request->response['email'], $request->response['password']);
             UserRepository::addUserToJson($user);
+            $this->pages->render('files/addFiles', $request->response);
         }
 
     }

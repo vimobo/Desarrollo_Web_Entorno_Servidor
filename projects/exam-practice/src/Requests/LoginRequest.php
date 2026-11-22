@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Requests;
 
+use Core\JsonInFile;
 use Repository\UserRepository;
 
 class LoginRequest
@@ -34,19 +35,21 @@ class LoginRequest
         ValidateUser::validateUser($this->response);
     }
 
-    public static function authUser($user): bool
+    public function authUser(): bool
     {
-        $data = UserRepository::getUser($user['email'] ?? "");
-        
-        if (!empty($data) || !password_verify($user['password'] ?? "", password_hash($data['password'], PASSWORD_DEFAULT))) {
+        $user = JsonInFile::getValueByKeyInJsonFile( __DIR__ . "/../database/users.json", $this->response['email']);
 
-            return true;
-            }
-        else {
+        if (is_null($user)) {
+            $this->response['errors']['auth'] = "El usuario/contraseña no coinciden";
             return false;
-            var_dump($this->response);
-            $this->response['errors']['auth'] = "User or password not found.";
         }
+        if (!password_verify($this->response['password'], $user['password'])) {
+            $this->response['errors']['auth'] = "El usuario/contraseña no coinciden";
+            return false;
+        }
+
+        return password_verify($this->response['password'], $user['password']);
     }
+
 
 }
