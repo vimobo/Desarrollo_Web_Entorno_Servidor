@@ -35,6 +35,7 @@ class Validator
         return null;
     }
 
+    //needs to recive a hashed password, confirm should be hashed when stored
     public static function passwordsMatch(string $password, string $confirm): ?string
     {
         return $password === $confirm ? null : 'Passwords do not match';
