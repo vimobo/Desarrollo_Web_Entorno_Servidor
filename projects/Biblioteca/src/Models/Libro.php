@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace Models;
 
 use Core\FileHelper;
+use Core\JsonInFile;
 
 class Libro
 {
@@ -37,10 +38,10 @@ class Libro
 
     public function guardar()
     {
-        if ($this->existe()) {
-            $object = json_encode($this, JSON_UNESCAPED_UNICODE);
-            FileHelper::appendLine(RUTA_BIBLIOTECA, $object);
-        }
+            $object =  json_encode($this, JSON_UNESCAPED_UNICODE);
+            var_dump($object);
+            $objectTail = FileHelper::read(RUTA_BIBLIOTECA);
+            FileHelper::write(RUTA_BIBLIOTECA, $objectTail . $object);
     }
 
 
