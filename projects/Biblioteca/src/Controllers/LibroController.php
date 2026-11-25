@@ -40,15 +40,16 @@ final class LibroController
             );
 
             if (!$libro->existe()) {
-                file_put_contents(__DIR__ . "/../../data/foto" . time() . ".png", $file);
+                file_put_contents(__DIR__ . "/../../public/img/" . time() . ".png", $file);
                 $libro->guardar();
+                
+                $this->index();
 
             } else {
                 new Pages()->render('libro/formulario', ['errores' => $libroRequest->response['errores'], 'datos' => $libroRequest->response]);
 
             }
 
-            $this->index();
 
         } else
             new Pages()->render('libro/formulario', ['errores' => $libroRequest->response['errores'], 'datos' => $libroRequest->response]);
