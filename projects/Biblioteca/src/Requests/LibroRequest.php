@@ -97,7 +97,7 @@ class LibroRequest
             $finfo = new finfo(FILEINFO_MIME_TYPE);
             $mime = $finfo->file($this->file['tmp_name']);
 
-            var_dump($mime);
+            var_dump($mimTe);
             var_dump($this->file['tmp_name']);
 
             $extensions = [
